@@ -1,0 +1,175 @@
+/* Icon set - http://ionicons.com/ */
+@import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,500,800);
+figure.snip1187 {
+  font-family: 'Raleway', Arial, sans-serif;
+  position: relative;
+  overflow: hidden;
+  margin: 3rem;
+  margin-right: 0;
+  margin-top: 10vh;
+  min-width: 220px;
+  max-width: 21vw;
+    height: 48vh;
+  width: 100%;
+  background: #000000;
+  color: #ffffff;
+  text-align: center;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+  object-fit: cover;
+  border-radius: 8px
+}
+figure.snip1187 * {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all 0.35s ease-in-out;
+  transition: all 0.35s ease-in-out;
+}
+figure.snip1187 img {
+  max-width: 100%;
+  min-height: 100%;
+  position: relative;
+  opacity: 0.85;
+  vertical-align: top;
+  object-fit: cover;
+}
+figure.snip1187 .circle {
+  display: inline-block;
+  position: relative;
+  height: 100px;
+  width: 100px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+}
+figure.snip1187 .circle:before,
+figure.snip1187 .circle:after {
+  border: 2px solid white;
+  border-right-color: transparent;
+  border-left-color: transparent;
+  position: absolute;
+  content: '';
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all 0.35s ease-in-out;
+  transition: all 0.35s ease-in-out;
+  -webkit-transition-delay: 0.15s;
+  transition-delay: 0.15s;
+}
+figure.snip1187 .circle:before {
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+figure.snip1187 .circle:after {
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+figure.snip1187 figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: block;
+  height: 100%;
+}
+figure.snip1187 h2 {
+  position: absolute;
+  margin: 0;
+  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: -1px;
+  top: 50%;
+  left: -50%;
+  width: 200%;
+  padding: 0 20px;
+  opacity: 0;
+  -webkit-transform: translateY(-50%) scale(0.9);
+  transform: translateY(-50%) scale(0.9);
+}
+figure.snip1187 h2 span {
+  font-weight: 800;
+}
+figure.snip1187 .icon {
+  overflow: hidden;
+  width: 100%;
+  position: absolute;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  top: 50%;
+}
+figure.snip1187 i {
+  color: white;
+  font-size: 56px;
+}
+figure.snip1187 a {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  z-index: 1;
+}
+figure.snip1187:hover .circle,
+figure.snip1187.hover .circle {
+  background-color: rgba(0, 0, 0, 0);
+}
+figure.snip1187:hover .circle:before,
+figure.snip1187.hover .circle:before,
+figure.snip1187:hover .circle:after,
+figure.snip1187.hover .circle:after {
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
+}
+figure.snip1187:hover .circle:before,
+figure.snip1187.hover .circle:before {
+  -webkit-transform: rotate(24deg);
+  transform: rotate(24deg);
+}
+figure.snip1187:hover .circle:after,
+figure.snip1187.hover .circle:after {
+  -webkit-transform: rotate(-24deg);
+  transform: rotate(-24deg);
+}
+figure.snip1187:hover h2,
+figure.snip1187.hover h2 {
+  opacity: 1;
+  -webkit-transition-delay: 0.15s;
+  transition-delay: 0.15s;
+  -webkit-transform: translateY(-50%) scale(1);
+  transform: translateY(-50%) scale(1);
+}
+figure.snip1187:hover img,
+figure.snip1187.hover img {
+  opacity: 0.25;
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+figure.snip1187:hover .icon,
+figure.snip1187.hover .icon {
+  opacity: 0;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
+}
+.image-container{
+  display: flex;
+  flex-wrap: wrap;
+
+}
+/* .image-container{
+  border-radius: 8px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+} */

@@ -1,0 +1,279 @@
+#LastSongs {
+  @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600&family=Roboto:wght@500;700&display=swap");
+  /* MEDIA QUERIES */
+}
+#LastSongs .swiper-slide {
+  flex-shrink: 0;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition-property: transform;
+  display: block;
+}
+#LastSongs .swiper-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: flex;
+  transition-property: transform;
+  transition-timing-function: var(--swiper-wrapper-transition-timing-function, initial);
+  box-sizing: content-box;
+}
+#LastSongs .flexContainer {
+  display: flex;
+  gap: 4rem;
+  width: 95%;
+  padding: 60px;
+}
+#LastSongs :root {
+  --clr-text: hsl(0, 0%, 100%);
+}
+#LastSongs * {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Quicksand", sans-serif;
+}
+#LastSongs .body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle, rgb(82, 194, 196) 5%, rgb(44, 40, 40) 60%);
+  min-height: 90vh;
+}
+#LastSongs .section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 60px;
+}
+#LastSongs .song-container {
+  background: rgba(189, 181, 181, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 25px;
+  padding: 30px 0;
+  width: min(1200px, 100%);
+}
+#LastSongs .song-container > h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: center;
+  color: rgb(82, 185, 196);
+  margin: 20px 0 40px;
+}
+#LastSongs .song-container > a > h1 {
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: center;
+  color: rgb(82, 185, 196);
+  margin: 20px 0 40px;
+}
+#LastSongs .swiper {
+  width: 98%;
+  height: 100%;
+  margin-bottom: 30px;
+}
+#LastSongs .swiper {
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  overflow: hidden;
+  overflow: clip;
+  list-style: none;
+  padding: 0;
+  z-index: 1;
+  display: block;
+}
+#LastSongs .swiper-scrollbar {
+  --swiper-scrollbar-bottom: 0;
+  --swiper-scrollbar-drag-bg-color: rgb(82, 185, 196);
+  --swiper-scrollbar-size: 5px;
+}
+#LastSongs .post {
+  max-width: 400px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--clr-text);
+  background: rgba(149, 230, 236, 0.2);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 16px 16px 0;
+  margin-bottom: 16px;
+}
+#LastSongs .post-img {
+  width: 100%;
+  max-width: 400px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  border-radius: 6px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  pointer-events: none;
+}
+#LastSongs .post-body {
+  display: grid;
+  grid-template-columns: 15% 60% 20%;
+  align-items: center;
+  gap: 8px;
+  padding: 15px 0;
+  cursor: default;
+}
+#LastSongs .post-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 2px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+#LastSongs .post-author {
+  width: -moz-fit-content;
+  width: fit-content;
+  font-size: 0.8rem;
+  font-weight: 600;
+  opacity: 0.6;
+  color: var(--clr-text);
+}
+#LastSongs .post-avatar {
+  width: 40px;
+  aspect-ratio: 1/1;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 5px;
+  cursor: pointer;
+}
+#LastSongs .post-actions {
+  position: relative;
+}
+#LastSongs .post-actions-content {
+  position: absolute;
+  bottom: 130%;
+  right: 0;
+  padding: 8px;
+  border-radius: 8px;
+  background: rgba(172, 172, 172, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 2px 2px 10px 2px hsla(0, 0%, 0%, 0.25);
+  transition: opacity 0.25s, scale 0.25s;
+  transform-origin: bottom right;
+}
+#LastSongs .post-actions-content[data-visible=false] {
+  pointer-events: none;
+  opacity: 0;
+  scale: 0;
+}
+#LastSongs .post-actions-content[data-visible=true] {
+  pointer-events: unset;
+  scale: 1;
+  opacity: 1;
+}
+#LastSongs .post-actions-content li {
+  padding: 0.5rem 0.65rem;
+  border-radius: 0.25rem;
+  list-style: none;
+}
+#LastSongs .post-actions-content li:is(:hover, :focus-within) {
+  background-color: rgba(248, 132, 169, 0.7);
+}
+#LastSongs .post-actions-link {
+  width: -moz-max-content;
+  width: max-content;
+  display: grid;
+  grid-template-columns: 1rem 1fr;
+  align-items: center;
+  gap: 0.6rem;
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+#LastSongs .post-like {
+  text-decoration: none;
+  color: var(--clr-text);
+  margin-right: 5px;
+  font-size: 1.1rem;
+  opacity: 0.65;
+  border-radius: 50%;
+  overflow: hidden;
+  transition: all 0.35s ease;
+}
+#LastSongs .post-actions-controller {
+  border: 0;
+  background: none;
+  color: var(--clr-text);
+  cursor: pointer;
+  opacity: 0.65;
+}
+#LastSongs .post-like:hover,
+#LastSongs .post-actions-controller:hover {
+  opacity: 1;
+}
+#LastSongs .post-like:focus {
+  outline: none;
+}
+#LastSongs .post-like.active {
+  color: rgb(255, 0, 0);
+  opacity: 1;
+  transform: scale(1.2);
+}
+@media (max-width: 1200px) {
+  #LastSongs .swiper {
+    width: 80%;
+  }
+}
+@media (max-width: 900px) {
+  #LastSongs #songs {
+    padding: 60px 80px;
+  }
+  #LastSongs .swiper {
+    width: 50%;
+  }
+}
+@media (max-width: 765px) {
+  #LastSongs .swiper {
+    width: 70%;
+  }
+}
+@media (max-width: 550px) {
+  #LastSongs #songs {
+    padding: 40px 40px;
+  }
+  #LastSongs .swiper {
+    width: 80%;
+  }
+}
+#LastSongs #container-left {
+  transform: translateX(-155%);
+  animation: slide 1s ease forwards;
+  text-align: center;
+}
+#LastSongs #container-right {
+  transform: translateX(155%);
+  animation: slide 1s ease forwards;
+  text-align: center;
+}
+@keyframes slide {
+  100% {
+    transform: translateX(0%);
+  }
+}
+#LastSongs .heart-icon {
+  fill: transparent;
+  font-size: 15rem;
+  animation: animate-heart 4s linear forwards infinite;
+}
+@keyframes animate-heart {
+  100% {
+    fill: rgb(82, 185, 196);
+  }
+}/*# sourceMappingURL=swiper.css.map */
