@@ -1,7 +1,7 @@
 
 import { DataGrid } from "@mui/x-data-grid";
 import Avatar from "@mui/material/Avatar";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import StarsIcon from '@mui/icons-material/Stars';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
@@ -161,40 +161,40 @@ export default function Playlist(props) {
     const DownloadAsong = async (paramsRow) => {
 
 
+        try {
+            const response = await axios.get(`https://localhost:7001/api/Song/downloadSong/${paramsRow.songName}`, {
+                responseType: 'blob' // Set responseType to 'blob' to handle binary data
+            });
+
+            // Create a blob object from the response data
+            const blob = new Blob([response.data], { type: response.headers['content-type'] });
+
+            // Create a temporary URL for the blob
+            const url = window.URL.createObjectURL(blob);
+
+            // Create a link element to trigger the download
+            const link = document.createElement('a');
+            link.href = url;
+            link.setAttribute('download', paramsRow.songName); // Set the download attribute with the file name
+            document.body.appendChild(link);
+
+            // Trigger the click event on the link to start the download
+            link.click();
+
+            // Cleanup: Remove the link and revoke the URL
+            document.body.removeChild(link);
+            window.URL.revokeObjectURL(url);
             try {
-                const response = await axios.get(`https://localhost:7001/api/Song/downloadSong/${paramsRow.songName}`, {
-                    responseType: 'blob' // Set responseType to 'blob' to handle binary data
-                });
-
-                // Create a blob object from the response data
-                const blob = new Blob([response.data], { type: response.headers['content-type'] });
-
-                // Create a temporary URL for the blob
-                const url = window.URL.createObjectURL(blob);
-
-                // Create a link element to trigger the download
-                const link = document.createElement('a');
-                link.href = url;
-                link.setAttribute('download', paramsRow.songName); // Set the download attribute with the file name
-                document.body.appendChild(link);
-
-                // Trigger the click event on the link to start the download
-                link.click();
-
-                // Cleanup: Remove the link and revoke the URL
-                document.body.removeChild(link);
-                window.URL.revokeObjectURL(url);
-                try {
-                    const formData = new FormData();
-                    formData.append('NumOfDownloads', 1);
-                    axios.put(`https://localhost:7001/api/Song/UpdateSong/${paramsRow.songId}`, formData);
-                } catch (err) {
-                    console.log(err);
-                }
+                const formData = new FormData();
+                formData.append('NumOfDownloads', 1);
+                axios.put(`https://localhost:7001/api/Song/UpdateSong/${paramsRow.songId}`, formData);
             } catch (err) {
                 console.log(err);
             }
-       
+        } catch (err) {
+            console.log(err);
+        }
+
 
     };
 
@@ -261,7 +261,9 @@ export default function Playlist(props) {
 
 
     const columns = [
-        { field: "id", headerName: "#", width: 40 },
+        {
+            field: "id", headerName: "#", width: 40
+        },
 
         {
             field: "image",
@@ -302,7 +304,16 @@ export default function Playlist(props) {
             field: "name",
             headerName: "",
             width: 1000,
-
+            renderCell: (params) => {
+                return (
+                    <Link style={{"textDecoration":"none"}} to="/visualition"
+                        state={{
+                            song: params.row
+                        }}>
+                        {params.value}
+                    </Link>
+                )
+            }
         },
         {
             field: "detailes",
@@ -357,7 +368,7 @@ export default function Playlist(props) {
         <div>
             {isPlaylist && <PlaylistHeader Category={category} setDisplayPlayer={setDisplayPlayer} onShuffleClick={shuffleRows} />}
             <DataGrid
-                
+
                 sx={{
                     border: "none", padding: "1.8rem",
                     // disable cell selection style

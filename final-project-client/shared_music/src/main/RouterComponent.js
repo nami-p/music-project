@@ -15,6 +15,7 @@ import Loading from '../loading/loading';
 import UserProfile from '../Users/UserProfile';
 import ForgotPassword from '../Login/forgotPassword';
 import RecipeComponent from '../personal home page/LastSongsSlider';
+import AudioVisualizer from '../songDisplay/Visualition';
 
 
 const RouterComponents = () => {
@@ -43,6 +44,7 @@ const RouterComponents = () => {
                         <Route path='playlist' element={<Playlist/>}/>
                     </Route>
                     <Route path='ss' element={<RecipeComponent/>}></Route>
+                    <Route path='visualition' element={<AudioVisualizer/>}></Route>
                 </Route>
             </Routes>
         </Router>
