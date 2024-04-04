@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\Desktop\\final project\\Common\\Common.csproj": {}
+    "C:\\Users\\User\\Desktop\\‏‏תיקיה חדשה\\final project\\Common\\Common.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\Desktop\\final project\\Common\\Common.csproj": {
+    "C:\\Users\\User\\Desktop\\‏‏תיקיה חדשה\\final project\\Common\\Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\Desktop\\final project\\Common\\Common.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Desktop\\‏‏תיקיה חדשה\\final project\\Common\\Common.csproj",
         "projectName": "Common",
-        "projectPath": "C:\\Users\\User\\Desktop\\final project\\Common\\Common.csproj",
+        "projectPath": "C:\\Users\\User\\Desktop\\‏‏תיקיה חדשה\\final project\\Common\\Common.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\Desktop\\final project\\Common\\obj\\",
+        "outputPath": "C:\\Users\\User\\Desktop\\‏‏תיקיה חדשה\\final project\\Common\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

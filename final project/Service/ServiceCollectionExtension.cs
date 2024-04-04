@@ -22,7 +22,7 @@ namespace MyProject.Service
             services.AddScoped<IServiceExetention<SongToUserDTO>, SongToUserService>();
             services.AddScoped<IService<SongDTO>, SongService>();
             services.AddScoped<IService<CategoryDTO>, CategoryService>();
-            services.AddScoped<IService<ReviewDTO>, ReviewService>();
+            services.AddScoped<IServiceReviewExtention<ReviewDTO>, ReviewService>();
             services.AddAutoMapper(typeof(MapperProfile));
             return services;
         }

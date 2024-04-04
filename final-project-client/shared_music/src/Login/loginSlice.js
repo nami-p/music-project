@@ -23,7 +23,9 @@ export const loginSlice = createSlice({
         setUser: (state, action) => {
             state.user = action.payload;
         },
-        
+        setUserProfilImage:(state,action)=>{
+            state.user.profilImage = action.payload;
+        },
 
         rememberMeChecked: (state, action) => {
             state.rememberMeChecked = action.payload;
@@ -40,7 +42,7 @@ export const loginSlice = createSlice({
 //     }
 //   };
 
-export const { disconnect, connectu, setUser, rememberMeChecked } = loginSlice.actions;
+export const { disconnect, connectu, setUser, rememberMeChecked ,setUserProfilImage} = loginSlice.actions;
 
 
 

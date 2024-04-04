@@ -29,7 +29,10 @@ namespace final_project.Controllers
             var allsongs = await service.getAllAsync();
             foreach (var song in allsongs)
             {
-                song.Image = GetImage(song.Image);
+                if (!song.Image.StartsWith("https://pixabay.com/get/"))
+                {
+                    song.Image = GetImage(song.Image);
+                }
                 song.SongName = song.Song1;
                 song.Song1 = GetSong(song.Song1);
             }
@@ -77,7 +80,7 @@ namespace final_project.Controllers
         public async Task Delete(int id)
         {
            SongDTO song= await service.getAsync(id);
-           var path = Path.Combine(Environment.CurrentDirectory, "images/", song.Image);
+           //var path = Path.Combine(Environment.CurrentDirectory, "images/", song.Image);
          
             await service.deleteAsync(id);
 

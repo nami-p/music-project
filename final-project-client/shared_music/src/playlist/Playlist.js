@@ -16,7 +16,7 @@ import 'react-h5-audio-player/lib/styles.css';
 import axios from "axios";
 import SaveAltIcon from '@mui/icons-material/SaveAlt';
 import { useSelector } from "react-redux";
-
+import { allSongs } from "../Songs/SongsSlice";
 
 export default function Playlist(props) {
     const [hoverId, setHoverId] = useState(null);
@@ -26,8 +26,8 @@ export default function Playlist(props) {
     const [currentTrack, setTrackIndex] = useState(0);
     const [displayPlayer, setDisplayPlayer] = useState(false);
     const userId = useSelector((state) => state.login.user?.id);
-    // const [likes, setLikes] = useState([]);
-    const songs1 = useSelector((state) => state.songs.songs);
+    // const songs1 = useSelector((state) => state.songs.songs);
+    const songs1=useSelector(allSongs);
     const s = location.state.songs ? location.state.songs : songs1 || [];
 
 
@@ -309,7 +309,7 @@ export default function Playlist(props) {
                     <Link style={{"textDecoration":"none"}} to="/visualition"
                         state={{
                             song: params.row
-                        }}>
+                        }} onClick={()=>playAsong(params.row.id - 1)}>
                         {params.value}
                     </Link>
                 )

@@ -37,7 +37,8 @@ namespace Repository.Repositories
 
         public async Task<Song> getAsync(long id)
         {
-            return await _context.songs.Include(c => c.Playbacks).FirstOrDefaultAsync(x => x.Id == id);
+            //.Include(c => c.Playbacks)//
+            return await _context.songs.FirstOrDefaultAsync(x => x.Id == id);
         }
 
         public async Task<List<Song>> getAllAsync()

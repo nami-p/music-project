@@ -5,6 +5,7 @@ import loginReducer from '../Login/loginSlice.js';
 import songsReducer from '../Songs/SongsSlice';
 import categoriesReducer from '../AllCategories/CategoriesSlice.js'
 import usersReducer from '../Users/UsersSlice.js'
+import reviewReducer from '../Reviews/ReviewsSlice.js'
 import sessionStorage from 'redux-persist/lib/storage/session';
 import localStorage from 'redux-persist/es/storage';
 
@@ -16,6 +17,7 @@ const reducers = {
   songs: songsReducer, 
   categories:categoriesReducer,
   users:usersReducer,
+  reviews:reviewReducer,
 };
 
 const rootReducer = combineReducers(reducers);

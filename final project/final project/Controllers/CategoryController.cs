@@ -28,7 +28,10 @@ namespace final_project.Controllers
                 category.Image=GetImage(category.Image);
                 foreach (var song in category.Songs)
                 {
-                    song.Image = GetImage(song.Image);
+                    if (!song.Image.StartsWith("https://pixabay.com/get/"))
+                    {
+                        song.Image = GetImage(song.Image);
+                    }
                     song.SongName = song.Song1;
                     song.Song1 = GetSong(song.Song1);
                 }

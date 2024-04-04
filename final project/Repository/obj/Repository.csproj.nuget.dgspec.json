@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\Desktop\\final project\\Repository\\Repository.csproj": {}
+    "C:\\Users\\User\\Desktop\\‏‏תיקיה חדשה\\final project\\Repository\\Repository.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\Desktop\\final project\\Repository\\Repository.csproj": {
+    "C:\\Users\\User\\Desktop\\‏‏תיקיה חדשה\\final project\\Repository\\Repository.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\Desktop\\final project\\Repository\\Repository.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Desktop\\‏‏תיקיה חדשה\\final project\\Repository\\Repository.csproj",
         "projectName": "Repository",
-        "projectPath": "C:\\Users\\User\\Desktop\\final project\\Repository\\Repository.csproj",
+        "projectPath": "C:\\Users\\User\\Desktop\\‏‏תיקיה חדשה\\final project\\Repository\\Repository.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\Desktop\\final project\\Repository\\obj\\",
+        "outputPath": "C:\\Users\\User\\Desktop\\‏‏תיקיה חדשה\\final project\\Repository\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

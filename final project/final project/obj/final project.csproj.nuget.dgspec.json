@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\Desktop\\final project\\final project\\final project.csproj": {}
+    "C:\\Users\\User\\Desktop\\‏‏תיקיה חדשה\\final project\\final project\\final project.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\Desktop\\final project\\Common\\Common.csproj": {
+    "C:\\Users\\User\\Desktop\\‏‏תיקיה חדשה\\final project\\Common\\Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\Desktop\\final project\\Common\\Common.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Desktop\\‏‏תיקיה חדשה\\final project\\Common\\Common.csproj",
         "projectName": "Common",
-        "projectPath": "C:\\Users\\User\\Desktop\\final project\\Common\\Common.csproj",
+        "projectPath": "C:\\Users\\User\\Desktop\\‏‏תיקיה חדשה\\final project\\Common\\Common.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\Desktop\\final project\\Common\\obj\\",
+        "outputPath": "C:\\Users\\User\\Desktop\\‏‏תיקיה חדשה\\final project\\Common\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -70,14 +70,14 @@
         }
       }
     },
-    "C:\\Users\\User\\Desktop\\final project\\DataContext\\DataContext.csproj": {
+    "C:\\Users\\User\\Desktop\\‏‏תיקיה חדשה\\final project\\DataContext\\DataContext.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\Desktop\\final project\\DataContext\\DataContext.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Desktop\\‏‏תיקיה חדשה\\final project\\DataContext\\DataContext.csproj",
         "projectName": "DataContext",
-        "projectPath": "C:\\Users\\User\\Desktop\\final project\\DataContext\\DataContext.csproj",
+        "projectPath": "C:\\Users\\User\\Desktop\\‏‏תיקיה חדשה\\final project\\DataContext\\DataContext.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\Desktop\\final project\\DataContext\\obj\\",
+        "outputPath": "C:\\Users\\User\\Desktop\\‏‏תיקיה חדשה\\final project\\DataContext\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -99,8 +99,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\User\\Desktop\\final project\\Repository\\Repository.csproj": {
-                "projectPath": "C:\\Users\\User\\Desktop\\final project\\Repository\\Repository.csproj"
+              "C:\\Users\\User\\Desktop\\‏‏תיקיה חדשה\\final project\\Repository\\Repository.csproj": {
+                "projectPath": "C:\\Users\\User\\Desktop\\‏‏תיקיה חדשה\\final project\\Repository\\Repository.csproj"
               }
             }
           }
@@ -156,14 +156,14 @@
         }
       }
     },
-    "C:\\Users\\User\\Desktop\\final project\\final project\\final project.csproj": {
+    "C:\\Users\\User\\Desktop\\‏‏תיקיה חדשה\\final project\\final project\\final project.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\Desktop\\final project\\final project\\final project.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Desktop\\‏‏תיקיה חדשה\\final project\\final project\\final project.csproj",
         "projectName": "final project",
-        "projectPath": "C:\\Users\\User\\Desktop\\final project\\final project\\final project.csproj",
+        "projectPath": "C:\\Users\\User\\Desktop\\‏‏תיקיה חדשה\\final project\\final project\\final project.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\Desktop\\final project\\final project\\obj\\",
+        "outputPath": "C:\\Users\\User\\Desktop\\‏‏תיקיה חדשה\\final project\\final project\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -185,14 +185,14 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\User\\Desktop\\final project\\Common\\Common.csproj": {
-                "projectPath": "C:\\Users\\User\\Desktop\\final project\\Common\\Common.csproj"
+              "C:\\Users\\User\\Desktop\\‏‏תיקיה חדשה\\final project\\Common\\Common.csproj": {
+                "projectPath": "C:\\Users\\User\\Desktop\\‏‏תיקיה חדשה\\final project\\Common\\Common.csproj"
               },
-              "C:\\Users\\User\\Desktop\\final project\\DataContext\\DataContext.csproj": {
-                "projectPath": "C:\\Users\\User\\Desktop\\final project\\DataContext\\DataContext.csproj"
+              "C:\\Users\\User\\Desktop\\‏‏תיקיה חדשה\\final project\\DataContext\\DataContext.csproj": {
+                "projectPath": "C:\\Users\\User\\Desktop\\‏‏תיקיה חדשה\\final project\\DataContext\\DataContext.csproj"
               },
-              "C:\\Users\\User\\Desktop\\final project\\Service\\Service.csproj": {
-                "projectPath": "C:\\Users\\User\\Desktop\\final project\\Service\\Service.csproj"
+              "C:\\Users\\User\\Desktop\\‏‏תיקיה חדשה\\final project\\Service\\Service.csproj": {
+                "projectPath": "C:\\Users\\User\\Desktop\\‏‏תיקיה חדשה\\final project\\Service\\Service.csproj"
               }
             }
           }
@@ -257,14 +257,14 @@
         }
       }
     },
-    "C:\\Users\\User\\Desktop\\final project\\Repository\\Repository.csproj": {
+    "C:\\Users\\User\\Desktop\\‏‏תיקיה חדשה\\final project\\Repository\\Repository.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\Desktop\\final project\\Repository\\Repository.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Desktop\\‏‏תיקיה חדשה\\final project\\Repository\\Repository.csproj",
         "projectName": "Repository",
-        "projectPath": "C:\\Users\\User\\Desktop\\final project\\Repository\\Repository.csproj",
+        "projectPath": "C:\\Users\\User\\Desktop\\‏‏תיקיה חדשה\\final project\\Repository\\Repository.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\Desktop\\final project\\Repository\\obj\\",
+        "outputPath": "C:\\Users\\User\\Desktop\\‏‏תיקיה חדשה\\final project\\Repository\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -327,14 +327,14 @@
         }
       }
     },
-    "C:\\Users\\User\\Desktop\\final project\\Service\\Service.csproj": {
+    "C:\\Users\\User\\Desktop\\‏‏תיקיה חדשה\\final project\\Service\\Service.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\Desktop\\final project\\Service\\Service.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Desktop\\‏‏תיקיה חדשה\\final project\\Service\\Service.csproj",
         "projectName": "Service",
-        "projectPath": "C:\\Users\\User\\Desktop\\final project\\Service\\Service.csproj",
+        "projectPath": "C:\\Users\\User\\Desktop\\‏‏תיקיה חדשה\\final project\\Service\\Service.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\Desktop\\final project\\Service\\obj\\",
+        "outputPath": "C:\\Users\\User\\Desktop\\‏‏תיקיה חדשה\\final project\\Service\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -356,11 +356,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\User\\Desktop\\final project\\Common\\Common.csproj": {
-                "projectPath": "C:\\Users\\User\\Desktop\\final project\\Common\\Common.csproj"
+              "C:\\Users\\User\\Desktop\\‏‏תיקיה חדשה\\final project\\Common\\Common.csproj": {
+                "projectPath": "C:\\Users\\User\\Desktop\\‏‏תיקיה חדשה\\final project\\Common\\Common.csproj"
               },
-              "C:\\Users\\User\\Desktop\\final project\\Repository\\Repository.csproj": {
-                "projectPath": "C:\\Users\\User\\Desktop\\final project\\Repository\\Repository.csproj"
+              "C:\\Users\\User\\Desktop\\‏‏תיקיה חדשה\\final project\\Repository\\Repository.csproj": {
+                "projectPath": "C:\\Users\\User\\Desktop\\‏‏תיקיה חדשה\\final project\\Repository\\Repository.csproj"
               }
             }
           }

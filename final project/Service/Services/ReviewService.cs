@@ -14,14 +14,16 @@ using Microsoft.AspNetCore.Http;
 
 namespace Service.Services
 {
-    public class ReviewService:IService<ReviewDTO>
+    public class ReviewService:IServiceReviewExtention<ReviewDTO>
     {
         //המרה ממחלקה
         private readonly IMapper mapper;
         private readonly IRepository<Review> repository;
-        public ReviewService(IRepository<Review> repository, IMapper mapper)
+        private readonly IRepository<SongToUser> playbackRepository;
+        public ReviewService(IRepository<Review> repository,IRepository<SongToUser> playbackRepository, IMapper mapper)
         {
             this.repository = repository;
+            this.playbackRepository = playbackRepository;
             this.mapper = mapper;
         }
         public async Task<ReviewDTO> AddAsync(ReviewDTO entity)
@@ -47,6 +49,25 @@ namespace Service.Services
         public async Task updateAsync(long id, ReviewDTO entity)
         {
             await repository.updateAsync(id, mapper.Map<Review>(entity));
+        }
+
+        public async Task<List<ReviewDTO>> JoinPlaybacksAndReviews(long songId)
+        {
+            var allReviews = await repository.getAllAsync();
+            var songReviews = allReviews.Where(x => x.SongId == songId);
+            var allPlaybacks = await playbackRepository.getAllAsync();
+            var songPlaybacks = allPlaybacks.Where(x => x.SongId == songId);
+            var newReviews = from p in songPlaybacks
+                             join r in songReviews
+                             on p.UserId equals r.UserId into joinedReviews
+                             from c in joinedReviews.DefaultIfEmpty()
+                             select new
+                             {
+                                 Id = p.Id,
+                                 Name = p.Name,
+                                 Category = c?.Name
+                             };
+            return newReviews;
         }
     }
 }

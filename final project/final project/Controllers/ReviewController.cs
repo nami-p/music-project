@@ -21,7 +21,12 @@ namespace final_project.Controllers
         [HttpGet]
         public async Task<List<ReviewDTO>> Get()
         {
-            return await service.getAllAsync();
+                var allReviews = await service.getAllAsync();
+                foreach (var review in allReviews)
+                {
+                    review.User.ProfilImage = GetImage(review.User.ProfilImage);
+                }
+                return allReviews;    
         }
 
         // GET api/<ReviewController>/5
@@ -30,17 +35,25 @@ namespace final_project.Controllers
         {
             return await service.getAsync(id);
         }
-
+        private string GetImage(string ImageUrl)
+        {
+            var path = Path.Combine(Environment.CurrentDirectory, "images/", ImageUrl);
+            byte[] bytes = System.IO.File.ReadAllBytes(path);
+            string imageBase64 = Convert.ToBase64String(bytes);
+            string image = string.Format("data:image/jpeg;base64,{0}", imageBase64);
+            return image;
+        }
         // POST api/<ReviewController>
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody] ReviewDTO Review)
+        public async Task<ActionResult> Post([FromForm] ReviewDTO Review)
         {
+            Review.Date=DateTime.Now;
             return Ok( await service.AddAsync(Review));
         }
 
         // PUT api/<ReviewController>/5
         [HttpPut("{id}")]
-        public async Task Put(int id, [FromBody] ReviewDTO r)
+        public async Task Put(int id, [FromForm] ReviewDTO r)
         {
             await service.updateAsync(id, r);
         }

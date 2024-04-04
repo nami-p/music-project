@@ -30,7 +30,10 @@ namespace final_project.Controllers
             var allsongsToUser = await service.GetAllPlayingsOfUser(UserId); ;
             foreach (var song in allsongsToUser)
             {
-                song.Song.Image = GetImage(song.Song.Image);
+                if (!song.Song.Image.StartsWith("https://pixabay.com/get/"))
+                {
+                    song.Song.Image = GetImage(song.Song.Image);
+                }
                 song.Song.SongName = song.Song.Song1;
                 song.Song.Song1 = GetSong(song.Song.Song1);
             }

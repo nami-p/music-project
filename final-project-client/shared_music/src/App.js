@@ -8,6 +8,7 @@ import React, { useEffect } from 'react';
 import { fetchSongs } from './Songs/SongsSlice';
 import { fetchcategories } from './AllCategories/CategoriesSlice';
 import { fetchusers } from './Users/UsersSlice';
+import { fetchreviews } from './Reviews/ReviewsSlice';
 
 const theme = createTheme({
   mode: 'light',
@@ -35,16 +36,16 @@ const theme = createTheme({
 function App() {
 
   const dispatch = useDispatch();
-  const statusSong = useSelector(state => {console.log (state) ;return state.songs.status})
+  const statusSong = useSelector(state => { console.log(state); return state.songs.status })
   const statusCategory = useSelector(state => state.categories.status)
-
+  
   useEffect(() => {
     const fetchData = async () => {
       if (statusSong != "fulfilled")
         dispatch(fetchSongs());
       if (statusCategory != "fulfilled")
         dispatch(fetchcategories());
-     
+    
     };
     fetchData();
   }, []);

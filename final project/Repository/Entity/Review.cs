@@ -33,7 +33,7 @@ namespace Repository.Entity
         public DateTime Date { get => date; set => date = value; }
         public long UserId { get => userId; set => userId = value; }
         [ForeignKey("UserId")]
-        public virtual User user { get; set; }
+        public virtual User User { get; set; }
         public long SongId { get => songId; set => songId = value; }
         [ForeignKey("SongId")]
         public virtual Song song { get; set; }

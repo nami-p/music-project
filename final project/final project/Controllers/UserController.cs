@@ -41,6 +41,7 @@ namespace final_project.Controllers
         {
             return await service.getAsync(id);
         }
+
         [HttpGet("{passward}/{email}")]
         public async Task<UserDTO> Get([Required] string passward, [Required] string email)
         {
@@ -79,6 +80,7 @@ namespace final_project.Controllers
         {
             await service.deleteAsync(id);
         }
+
         [HttpGet("getImage/{ImageUrl}")]
         public string GetImage(string ImageUrl)
         {

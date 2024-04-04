@@ -13,9 +13,10 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import { Link, Outlet } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import { useEffect } from 'react';
+import { setUserProfilImage } from '../Login/loginSlice';
 
 
 
@@ -26,6 +27,7 @@ function ResponsiveAppBar() {
   const pages = ['Login', 'Playlists', 'Blog', 'AllSongs', 'Users'];
   const settings = [{ name: 'Profile', link: "/userProfile/" + user?.id }, { name: 'Account', link: 'Account' }, { name: 'Dashboard', link: 'Dashboard' }, { name: 'Logout', link: 'Logout' }];
 
+  const dispatch=useDispatch();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const [image, setImage] = React.useState("/static/images/avatar/2.jpg");
@@ -40,6 +42,7 @@ function ResponsiveAppBar() {
         axios.get(`https://localhost:7001/api/User/getImage/${user.profilImage}`)
           .then(response => {
             setImage(response.data); // Assuming the data already contains the base64 string
+            dispatch(setUserProfilImage(response.data));
           })
           .catch(error => {
             console.error("Error fetching image:", error);

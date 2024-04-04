@@ -41,24 +41,32 @@ namespace Repository.Repositories
 
         public async Task<Review> getAsync(long id)
         {
-            return await _context.reviews.FirstOrDefaultAsync(x => x.Id == id);
+            var r= await _context.reviews.FirstOrDefaultAsync(x => x.Id == id);
+            if(r == null)
+            {
+                throw new Exception("The specified id does not exist.");
+            }
+            else
+            {
+                return r;
+            }
         }
 
         public async Task<List<Review>> getAllAsync()
         {
-            return await _context.reviews.ToListAsync();
+            return await _context.reviews.Include(r=>r.User).ToListAsync();
         }
-
+       
+       
         public async Task updateAsync(long id, Review item)
         {
 
             //_context.reviews.Update(entity);
             var review = await this._context.reviews.FirstOrDefaultAsync(x => x.Id == id);
-            review.Date = item.Date;
             review.Content = item.Content;
             review.RatingStars = item.RatingStars;
-            review.song = item.song;
-            review.user = item.user;
+            review.SongId = item.SongId;
+            review.UserId = item.UserId;
             await _context.save();
         }
     }

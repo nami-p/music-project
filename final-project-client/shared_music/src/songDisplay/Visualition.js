@@ -1,19 +1,23 @@
-
-
 import React, { useEffect, useRef, useState } from 'react';
 import '../design/song/AudioVisualizer.css';
 import { useLocation } from 'react-router-dom';
+import SongComments from '../Reviews/SongComments';
 
 const AudioVisualizer = (props) => {
+
   const location = useLocation();
   const song = location.state?.song;
-  const [firstplaying, setfirstplaying] = useState(0);
+  const [firstplaying, setFirstPlaying] = useState(0);
   const canvasRef = useRef(null);
   const buttonRef = useRef(null);
+  const timeoutsRef = useRef([]);
+  const sourceRef = useRef(null);
+
 
   const audioVisualizerLogic = (audioData) => {
     const context = new (window.AudioContext || window.webkitAudioContext)();
     const source = context.createBufferSource();
+    sourceRef.current = source;
 
     // Decode Base64 audio data directly
     context.decodeAudioData(
@@ -53,14 +57,13 @@ const AudioVisualizer = (props) => {
     let barHeight = null,
       x = null;
 
-    const timeouts = [];
+    timeoutsRef.current = []; // Clear previous timeouts
     const renderFrame = () => {
       ctx.fillStyle = "rgba(0,0,0,0)";
       requestAnimationFrame(renderFrame);
       x = 0;
       analyser.getByteFrequencyData(dataArray);
-      ctx.fillRect(0, 0, WIDTH, HEIGHT);
-
+      ctx.clearRect(x, 0, barWidth + 1, HEIGHT);
       for (let i = 0; i < bufferLength; i++) {
         barHeight = dataArray[i];
         let r = barHeight + 22 * (i / bufferLength),
@@ -73,43 +76,53 @@ const AudioVisualizer = (props) => {
         let timer = setTimeout(() => {
           ctx.clearRect(0, 0, WIDTH, HEIGHT);
         }, 50);
-        timeouts.push(timer);
+        timeoutsRef.current.push(timer);
       }
     };
-    setTimeout(() => {
-      for (let i = 0; i < timeouts.length; i++) {
-        return clearTimeout(timeouts[i]);
-      }
-    }, 51);
     renderFrame();
   };
-  // useEffect(()=>{
-  //       setfirstplaying(0);
-  // },[])
+
   useEffect(() => {
-    const base64AudioData = song.song;
-    if (firstplaying === 1) audioVisualizerLogic(base64AudioData);
-  }, [firstplaying])
+
+    return () => {
+      // Clean up timeouts when component unmounts
+      timeoutsRef.current.forEach((timer) => clearTimeout(timer));
+      if (sourceRef.current) {
+        sourceRef.current.stop();
+        sourceRef.current.disconnect();
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    const base64AudioData = song?.song;
+    if (firstplaying === 1 && base64AudioData) {
+      audioVisualizerLogic(base64AudioData);
+    }
+  }, [firstplaying, song]);
 
   return (
-    <div className="App">
-
-      <span className="hint">(Click page to start/stop)</span>
-      <main className="main">
-        <button className="contextButton" onClick={
-          () => {
-            if (firstplaying === 0){
-              setfirstplaying(state => state+1);
-            }
-          }}
-          ref={buttonRef}>
-          <canvas ref={canvasRef} className="canvas"></canvas>
-        </button>
-      </main>
-    </div>
+    <>
+      <div className="App">
+        <span className="hint">(Click page to start/stop)</span>
+        <main className="main">
+          <button
+            className="contextButton"
+            onClick={() => {
+              if (firstplaying === 0) {
+                setFirstPlaying(1);
+              }
+            }}
+            ref={buttonRef}
+          >
+            <canvas ref={canvasRef} className="canvas"></canvas>
+          </button>
+        </main>
+      </div>
+      <SongComments songId={song?.songId}></SongComments>
+    </>
   );
 };
-
 
 // Function to convert Base64 string to ArrayBuffer
 function base64ToArrayBuffer(base64) {
@@ -121,4 +134,5 @@ function base64ToArrayBuffer(base64) {
   }
   return bytes.buffer;
 }
+
 export default AudioVisualizer;

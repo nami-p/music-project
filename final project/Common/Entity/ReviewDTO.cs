@@ -8,10 +8,12 @@ namespace Common.Entity
 {
     public class ReviewDTO
     {
+        public long ? id { get; set; }
         public long SongId { get; set; }    
         public long UserId { get; set; }    
         public int RatingStars { get; set; }
         public string Content { get; set; }
-        public DateTime Date { get; set; }
+        public DateTime? Date { get; set; }
+        public UserDTO ?User { get; set; }
     }
 }
