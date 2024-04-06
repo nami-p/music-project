@@ -9,18 +9,16 @@ namespace Entities.Entity
 {
     public class User
     {
-        private long id;
-        private string email;   
-        private string password;    
-        private string firstName;   
-        private string lastName;
-        private int age;    
-        private int phoneNumber;
-        private bool status;
-        private string profilImage;
-        public User()
-        {
-        }
+        //private long id;
+        //private string email;   
+        //private string password;    
+        //private string firstName;   
+        //private string lastName;
+        //private int age;    
+        //private int phoneNumber;
+        //private bool status;
+        //private string profilImage;
+       
    
 
         public long Id { get; set; }    
@@ -32,7 +30,7 @@ namespace Entities.Entity
         public int Age { get; set; }
         public bool Status { get; set; }
         public string Description { get; set; }
-        public string ProfilImage { get => profilImage; set => profilImage = value; }
+        public string ProfilImage { get; set; }
         public virtual ICollection<Song> songs { get; set; }
         public virtual ICollection<Review> Reviews { get; set; }
         public virtual ICollection<SongToUser> playbacks { get; set; }

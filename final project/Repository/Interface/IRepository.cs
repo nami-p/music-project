@@ -13,6 +13,10 @@ namespace Repository.Interface
         public Task deleteAsync(long id);
         public Task updateAsync(long id, T entity);
         public Task<T> addItemAsync(T item);
+        public Task<List<T>> JoinPlaybacksAndReviews(long songId)
+        {
+            return null;
+        }
 
     }
 }

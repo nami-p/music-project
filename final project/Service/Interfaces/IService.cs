@@ -14,5 +14,9 @@ namespace Service.Interfaces
         public Task updateAsync(long id,T entity);
         public Task deleteAsync(long id);
         public Task<T> AddAsync(T entity);
+        public Task<List<T>> JoinPlaybacksAndReviews(long songId)
+        {
+            return null;
+        }
     }
 }

@@ -26,7 +26,9 @@ namespace Service.Services
         }
         public async Task<UserDTO> AddAsync(UserDTO entity)
         {
-            return mapper.Map<UserDTO>(await repository.addItemAsync(mapper.Map<User>(entity)));
+           var user=await repository.addItemAsync(mapper.Map<User>(entity));
+            user.Passward = "****";
+            return mapper.Map<UserDTO>(user);
         }
 
         public async Task deleteAsync(long id)

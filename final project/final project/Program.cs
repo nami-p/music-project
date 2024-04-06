@@ -12,9 +12,9 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddHttpClient();
 
-//הזרקת תלות
+//Dependicy injection
 builder.Services.AddServices();
-builder.Services.AddSingleton<IContext, Db>();
+builder.Services.AddDbContext<IContext, Db>();
 builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(

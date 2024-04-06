@@ -50,6 +50,20 @@ namespace final_project.Controllers
             Review.Date=DateTime.Now;
             return Ok( await service.AddAsync(Review));
         }
+        [HttpPost("joinReviewAndPlayback")]
+        public async Task<List<ReviewDTO>> Post([FromForm] long  songId)
+        {
+            try
+            {
+                
+                    return await service.JoinPlaybacksAndReviews(songId);
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception();
+            }
+        }
 
         // PUT api/<ReviewController>/5
         [HttpPut("{id}")]

@@ -14,10 +14,11 @@ const PersonalArea = () => {
         <Box sx={{ flexGrow: 1 }}>
             <Grid container spacing={2} columns={16}>
                 <Grid item xs={8}>
-                    <Item><Button><Link to="/EditSongs">edit songs</Link></Button></Item>
+                    <Item>
+                    <Button><Link to="/EditSongs">edit songs</Link></Button></Item>
                 </Grid>
                 <Grid item xs={8}>
-                    <Item><Link to="/AddSong">add new song</Link></Item>
+                    <Item><Button><Link to="/AddSong">add new song</Link></Button></Item>
                 </Grid>
             </Grid>
             {/* <Outlet /> */}

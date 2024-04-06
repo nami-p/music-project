@@ -59,9 +59,14 @@ export const addreview = createAsyncThunk(
                 }
             });
             if (response.status === 200) {
+                try {
+                    const img = await axios.get(`https://localhost:7001/api/User/getImage/${response.data.user.profilImage}`);
+                    response.data.user.profilImage = img.data;
+                }
+                catch (err) {
+                    console.log(err);
+                }
 
-                const img = await axios.get(`https://localhost:7001/api/User/getImage/${response.data.user.profilImage}`)
-                response.data.user.profilImage = img.data;
             }
             // const review = await axios.get(`https://localhost:7001/api/review/getreview/${response.data.review1}`)
             // response.data.review = review.data;

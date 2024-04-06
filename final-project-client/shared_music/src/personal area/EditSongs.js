@@ -19,6 +19,7 @@ import { Avatar, Rating, Tooltip } from '@mui/material';
 import axios from 'axios';
 import { deleteSong, updateSong } from '../Songs/SongsSlice';
 import { GridToolbar } from '@mui/x-data-grid';
+import { Link } from 'react-router-dom';
 
 
 
@@ -143,12 +144,14 @@ export default function EditSongs() {
             renderCell: (params) => {
 
                 return (
-                    <Avatar
-                        sx={{ width: 56, height: 56 }}
-                        variant="rounded"
-                        src={params.value.avatar} className="playImage">
-                    </Avatar>
-
+                    <Link  to="/songView"
+                    state={{songId:params?.row?.id}}>
+                        <Avatar
+                            sx={{ width: 56, height: 56 }}
+                            variant="rounded"
+                            src={params.value.avatar} className="playImage">
+                        </Avatar>
+                    </Link>
                 );
             }
         },

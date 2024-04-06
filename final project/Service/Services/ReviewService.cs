@@ -10,11 +10,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 
 namespace Service.Services
 {
-    public class ReviewService:IServiceReviewExtention<ReviewDTO>
+    public class ReviewService:IService<ReviewDTO>
     {
         //המרה ממחלקה
         private readonly IMapper mapper;
@@ -54,20 +55,31 @@ namespace Service.Services
         public async Task<List<ReviewDTO>> JoinPlaybacksAndReviews(long songId)
         {
             var allReviews = await repository.getAllAsync();
-            var songReviews = allReviews.Where(x => x.SongId == songId);
+           // var songReviews = allReviews?.Where(x => x.SongId == songId);
+
             var allPlaybacks = await playbackRepository.getAllAsync();
-            var songPlaybacks = allPlaybacks.Where(x => x.SongId == songId);
-            var newReviews = from p in songPlaybacks
-                             join r in songReviews
-                             on p.UserId equals r.UserId into joinedReviews
-                             from c in joinedReviews.DefaultIfEmpty()
-                             select new
-                             {
-                                 Id = p.Id,
-                                 Name = p.Name,
-                                 Category = c?.Name
-                             };
-            return newReviews;
+            // var songPlaybacks = allPlaybacks?.Where(x => x.SongId == songId);
+
+            var newReviews = (from p in allPlaybacks
+                              join r in allReviews
+                              on new { p.UserId, p.SongId } equals new { r.UserId, r.SongId }
+                              into joinedReviews
+                              where p.SongId == songId
+                              from rr in joinedReviews.DefaultIfEmpty()
+                              select new ReviewDTO
+                              {
+                                  id = p.Id,
+                                  ProfilImage = p?.Song.user.ProfilImage,
+                                  Date = rr?.Date ?? DateTime.Now,
+                                  Content = rr?.Content ?? "this user didnt react of this song",
+                                  UserCount = p?.Count ?? 0,
+                                  RatingStars = rr?.RatingStars ?? 0,
+                                  UserLike = p.Love,
+                                  UserAddedToCollection = p.AddToCollection,
+
+                             }).ToList();
+            //mapper.Map < List < ReviewDTO >> 
+            return (mapper.Map<List<ReviewDTO>>(newReviews));
         }
     }
 }

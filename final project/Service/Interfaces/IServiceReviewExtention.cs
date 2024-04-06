@@ -9,7 +9,10 @@ namespace Service.Interfaces
 {
     public interface IServiceReviewExtention<T>:IService <T>
     {
-        public Task<List<T>> JoinPlaybacksAndReviews(long songId);
+        public Task<List<T>> JoinPlaybacksAndReviews(long songId)
+        {
+            return null;
+        }
 
     }
 }

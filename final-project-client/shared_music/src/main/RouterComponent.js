@@ -18,6 +18,7 @@ import RecipeComponent from '../personal home page/LastSongsSlider';
 import AudioVisualizer from '../songDisplay/Visualition';
 import Search from '../personal area/GenerateImages';
 import StarsRating from '../Reviews/starsRating';
+import SongView from '../personal area/songView';
 
 
 const RouterComponents = () => {
@@ -48,7 +49,8 @@ const RouterComponents = () => {
                     <Route path='ss' element={<RecipeComponent/>}></Route>
                     <Route path='visualition' element={<AudioVisualizer/>}></Route>
                     <Route path='generateImage' element={<Search/>}></Route>
-                    <Route path='rr' element={<StarsRating/>}></Route>
+                    <Route path='songView' element={<SongView/>}></Route>
+                    {/* <Route path='rr' element={<StarsRating/>}></Route> */}
                 </Route>
             </Routes>
         </Router>

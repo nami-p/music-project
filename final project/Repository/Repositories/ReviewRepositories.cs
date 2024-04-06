@@ -24,6 +24,8 @@ namespace Repository.Repositories
             {
                 await _context.reviews.AddAsync(item);
                 await _context.save();
+                var user=await _context.Users.FirstOrDefaultAsync(x=>x.Id==review.UserId);
+                review.User = user;
                 return review;
             }
             catch (Exception ex)
