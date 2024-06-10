@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "../design/reviews/reviews.css"
 import { Link } from "react-router-dom";
-import { addreview, fetchreviews } from "./ReviewsSlice";
+import { addreview, fetchreviews, updatereviewsforsongs } from "./ReviewsSlice";
 import StarsRating from "./starsRating";
 import AddNewSong from "../personal area/AddNewSong";
 import { fDate } from '../utils/format-time';
@@ -97,7 +97,7 @@ const SongComments = ({ songId }) => {
     useEffect(() => {
         if (newReview?.RatingStars) {
             dispatch(addreview(newReview));
-
+            dispatch(updatereviewsforsongs(newReview));
         }
     }, [newReview?.RatingStars])
 

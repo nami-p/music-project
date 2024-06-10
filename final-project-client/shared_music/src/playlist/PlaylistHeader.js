@@ -31,7 +31,7 @@ const PlaylistHeader = (props) => {
         fontWeight: 400,
     };
     return (
-        <Box sx={{ marginBottom: 0 }}>
+        <Box sx={{ marginBottom: 0 }} className='page'>
             {/* Icon with text */}
             <Box sx={{ display: 'flex', alignItems: 'center', margin: 1.5 }}>
                 <IconButton onClick={() => { navigate('/playlists') }}>
@@ -44,7 +44,7 @@ const PlaylistHeader = (props) => {
             <Box
                 sx={{
                     position: 'relative',
-                    height: '40vh',
+                    height: '39vh',
                     backgroundPosition: 'center center',
                     backgroundImage: `linear-gradient(0deg,#fff,hsla(0,0%,100%,.8)), url(${category.image})`,
                     backgroundSize: 'cover',

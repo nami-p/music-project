@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import '../design/song/AudioVisualizer.css';
 import { useLocation } from 'react-router-dom';
-import SongComments from '../Reviews/SongComments';
+import PlayCircleFilledIcon from '@mui/icons-material/PlayCircleFilled';
 
 const AudioVisualizer = (props) => {
 
@@ -115,11 +115,13 @@ const AudioVisualizer = (props) => {
             }}
             ref={buttonRef}
           >
+          
             <canvas ref={canvasRef} className="canvas"></canvas>
+            tvybhnjmk
           </button>
         </main>
       </div>
-      <SongComments songId={song?.songId}></SongComments>
+      {/* <SongComments songId={song?.songId}></SongComments> */}
     </>
   );
 };

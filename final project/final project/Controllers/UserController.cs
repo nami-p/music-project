@@ -42,10 +42,10 @@ namespace final_project.Controllers
             return await service.getAsync(id);
         }
 
-        [HttpGet("{passward}/{email}")]
-        public async Task<UserDTO> Get([Required] string passward, [Required] string email)
+        [HttpPost("GetByNameAndPassward")]
+        public async Task<UserDTO> Get([Required][FromForm] string password, [Required][FromForm] string email)
         {
-            return await service.GetByNameAndPassward(passward, email);
+            return await service.GetByNameAndPassward(password, email);
         }
 
         // POST api/<UserController>

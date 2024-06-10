@@ -17,6 +17,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import { useEffect } from 'react';
 import { setUserProfilImage } from '../Login/loginSlice';
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -24,17 +25,19 @@ function ResponsiveAppBar() {
 
   const user = useSelector(state => state.login.user);
 
-  const pages = ['Login', 'Playlists', 'Blog', 'AllSongs', 'Users'];
+  const pages = ['Login', 'Playlists', 'homePage', 'AllSongs', 'Users'];
   const settings = [{ name: 'Profile', link: "/userProfile/" + user?.id }, { name: 'Account', link: 'Account' }, { name: 'Dashboard', link: 'Dashboard' }, { name: 'Logout', link: 'Logout' }];
 
-  const dispatch=useDispatch();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const [image, setImage] = React.useState("/static/images/avatar/2.jpg");
 
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    if (user && user.profilImage.slice(0, 4) == "data") {
-       setImage(user.profilImage)
+    if (user && (user.profilImage.slice(0, 4) == "data"||image!="/static/images/avatar/2.jpg")) {
+      setImage(user.profilImage)
     }
     else {
       if (user && user.profilImage) {
@@ -75,11 +78,11 @@ function ResponsiveAppBar() {
   return (
     <>
 
-      <AppBar position="static">
+      <AppBar elevation={0} color="transparent" sx={{ backdropFilter: "blur(20px)", marginBottom: '5vh' }}>
         <Container maxWidth="xl">
           <Toolbar disableGutters>
-            <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-            <Typography
+            {/* <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} /> */}
+            {/* <Typography
               variant="h6"
               noWrap
               component="a"
@@ -95,8 +98,19 @@ function ResponsiveAppBar() {
               }}
             >
               LOGO
-            </Typography>
-
+            </Typography> */}
+            {/* <img src='assets/images/logo.jpg' ></img> */}
+            <Box onClick={() => { navigate('/') }}
+              component="img"
+              sx={{
+                height: 65,
+                width: 80,
+                maxHeight: { xs: 233, md: 167 },
+                maxWidth: { xs: 350, md: 250 },
+              }}
+              alt="The house from the offer."
+              src='assets/images/logo.png'
+            />
             <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
               <IconButton
                 size="large"
@@ -126,9 +140,11 @@ function ResponsiveAppBar() {
                   display: { xs: 'block', md: 'none' },
                 }}
               >
-                {pages.map((page) => (
-                  <MenuItem key={page} onClick={() => handleCloseNavMenu(page)}>
-                    <Typography textAlign="center">{page}</Typography>
+                {pages.map((page,index) => (
+                  <MenuItem key={`pages${index}`} onClick={() => handleCloseNavMenu(page)}>
+                    <Typography textAlign="center">
+                      <Link className="nav-link" style={{ 'textDecoration': 'none', 'color': '#72e2e3' }} to={page}>{page}</Link>
+                    </Typography>
                   </MenuItem>
                 ))}
               </Menu>
@@ -150,18 +166,19 @@ function ResponsiveAppBar() {
                 textDecoration: 'none',
               }}
             >
-              LOGO
+              
               <Link to={"/"} />
             </Typography>
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-              {pages.map((page) => (
+              {pages.map((page,index) => (
 
                 <Button
-                  key={page}
+
+                  key={`page${index}`}
                   onClick={handleCloseNavMenu}
                   sx={{ my: 2, color: 'white', display: 'block' }}
                 >
-                  <Link className="nav-link" to={page}>{page}</Link>
+                  <Link className="nav-link" style={{ 'textDecoration': 'none', 'color': '#72e2e3' }} to={page}>{page}</Link>
                 </Button>
               ))}
             </Box>
@@ -189,8 +206,8 @@ function ResponsiveAppBar() {
                 open={Boolean(anchorElUser)}
                 onClose={handleCloseUserMenu}
               >
-                {settings.map((setting) => (
-                  <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                {settings.map((setting,index) => (
+                  <MenuItem key={`setting${index}`} onClick={handleCloseUserMenu}>
                     <Typography textAlign="center">
                       {user && <Link className="nav-link" to={setting.link}>{setting.name}</Link>}
                     </Typography>

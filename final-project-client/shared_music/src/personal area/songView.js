@@ -6,7 +6,7 @@ const SongView = (props) => {
     const s = location?.state?.songId ? location?.state?.songId : null ;
 
     return ( <>
-        <BlogView songId={s}/>
+        <BlogView songId={s} />
     </> );
 }
  

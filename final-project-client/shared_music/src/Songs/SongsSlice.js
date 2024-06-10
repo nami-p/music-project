@@ -35,19 +35,25 @@ export const fetchSongsForUser = createAsyncThunk(
         try {
             const response = await axios.get(`https://localhost:7001/sharedMusic/SongToUser/User/${id}`);
             let songs = response.data;
-            // if (response.status === 200) {
-            //     for (let index = 0; index < songs.length; index++) {
-            //         const img = await axios.get(`https://localhost:7001/api/Song/getImage/${songs[index].ImageUrl}`)
-            //         songs[index] = { ...songs[index], fileImage: img.data }
-            //     }
-            console.log(songs, 'song to user');
-            return songs;
+            if (response.status === 200) {
+                for (let index = 0; index < songs.length; index++) {
+                    try {
+                        const img = await axios.get(`https://localhost:7001/api/Song/getImage/${songs[index].song?.user?.profilImage}`)
+                        songs[index] = { ...songs[index], profilImage: img.data }
+                    }
+                    catch (err) {
+                        console.log(err);
+                    }
+                }
+                console.log(songs, 'song to user');
+                return songs;
+            }
         }
         catch (error) {
-            console.log(error);
-            return (error.message);
+                console.log(error);
+                return (error.message);
+            }
         }
-    }
 );
 
 export const getImage = createAsyncThunk(
@@ -84,8 +90,7 @@ export const addsong = createAsyncThunk(
                 }
             });
             if (response.status === 200) {
-                if(!response.data.image.startsWith('https://pixabay.com/get'))
-                {
+                if (!response.data.image.startsWith('https://pixabay.com/get')) {
                     const img = await axios.get(`https://localhost:7001/api/Song/getImage/${response.data.image}`)
                     response.data.image = img.data;
                 }
@@ -177,6 +182,6 @@ export const songsSlice = createSlice({
 })
 
 export const { updateSong, deleteSong } = songsSlice.actions
-export const allSongs = (state) => state.songs.songs; 
+export const allSongs = (state) => state.songs.songs;
 export default songsSlice.reducer
 

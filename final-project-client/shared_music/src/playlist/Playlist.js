@@ -1,5 +1,5 @@
 
-import { DataGrid } from "@mui/x-data-grid";
+import { DataGrid, useGridApiRef } from "@mui/x-data-grid";
 import Avatar from "@mui/material/Avatar";
 import { Link, useLocation } from "react-router-dom";
 import StarsIcon from '@mui/icons-material/Stars';
@@ -17,6 +17,7 @@ import axios from "axios";
 import SaveAltIcon from '@mui/icons-material/SaveAlt';
 import { useSelector } from "react-redux";
 import { allSongs } from "../Songs/SongsSlice";
+import { gridPaginatedVisibleSortedGridRowIdsSelector } from "@mui/x-data-grid";
 
 export default function Playlist(props) {
     const [hoverId, setHoverId] = useState(null);
@@ -27,7 +28,7 @@ export default function Playlist(props) {
     const [displayPlayer, setDisplayPlayer] = useState(false);
     const userId = useSelector((state) => state.login.user?.id);
     // const songs1 = useSelector((state) => state.songs.songs);
-    const songs1=useSelector(allSongs);
+    const songs1 = useSelector(allSongs);
     const s = location.state.songs ? location.state.songs : songs1 || [];
 
 
@@ -306,10 +307,10 @@ export default function Playlist(props) {
             width: 1000,
             renderCell: (params) => {
                 return (
-                    <Link style={{"textDecoration":"none"}} to="/visualition"
+                    <Link style={{ "textDecoration": "none" }} to="/songContainer"
                         state={{
                             song: params.row
-                        }} onClick={()=>playAsong(params.row.id - 1)}>
+                        }} onClick={() => playAsong(params.row.id - 1)}>
                         {params.value}
                     </Link>
                 )
@@ -363,6 +364,23 @@ export default function Playlist(props) {
     ];
 
     const rows = songs;
+    const apiRef = useGridApiRef();
+
+    const handleSelectFirstVisibleRow = (currentTrack) => {
+        const visibleRows = gridPaginatedVisibleSortedGridRowIdsSelector(apiRef); // Pass apiRef to the function
+        if (visibleRows.length === 0) {
+            return;
+        }
+
+        apiRef.current.selectRow(
+            visibleRows[currentTrack],
+            !apiRef.current.isRowSelected(visibleRows[currentTrack]),
+        );
+    };
+
+    // useEffect(() => {
+    //     handleSelectFirstVisibleRow(currentTrack);
+    // }, [currentTrack]);
 
     return (
         <div>
@@ -381,7 +399,14 @@ export default function Playlist(props) {
                 columns={columns}
                 pageSizeOptions={[5]}
                 hideFooterSelectedRowCount
-                selectionModel={currentTrack}
+                initialState={{
+                    
+                    pagination: {
+                        paginationModel: {
+                            pageSize: 10,
+                        },
+                    },
+                }}
             />
             {/* <DataTable></DataTable> */}
             {displayPlayer && <AudioPlayer

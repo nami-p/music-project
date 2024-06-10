@@ -15,18 +15,19 @@ const Songs = () => {
         // setSongs(tempSongs);
     }, [])
     console.log(songs, "songs");
-    return (<>
+    return (<div className="page">
         {status === 'idle' &&
-        <Loading/>}
+            <Loading />}
         {status === "fulfilled" &&
-            <Link to="/playlist"
+            <Button sx={{paddingTop:'20vh'}}><Link  to="/playlist"
                 state={{
                     songs: undefined, category: undefined, isPlaylist: false
                 }}
             >
-                hello world
-            </Link>}
-    </>);
+                go
+            </Link>
+            </Button>}
+    </div>);
 }
 
 export default Songs;

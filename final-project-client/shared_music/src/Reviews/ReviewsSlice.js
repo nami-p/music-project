@@ -79,30 +79,27 @@ export const addreview = createAsyncThunk(
 );
 
 
-// export const updatereviews = createAsyncThunk(
-//     'updatereviews',
-//     async (reviews) => {
-//         try {
-//             const formData = new FormData();
-//             formData.append('Name', reviews.Name);
-//             formData.append('Price', reviews.Price);
-//             formData.append('Description', reviews.Description);
-//             formData.append('CategoryId', reviews.CategoryId);
-//             formData.append('StoreId', reviews.StoreId);
-//             formData.append('Image', reviews.Image);
+export const updatereviewsforsongs = createAsyncThunk(
+    'updatereviewsforsongs',
+    async (review) => {
+        try {
+            const formData = new FormData();
+            formData.append('RatingStars', +review.RatingStars);
+            formData.append('NumOfRaters', 1);
+            
 
-//             const response = await axios.put(`https://localhost:7229/api/reviews/${reviews.Id}`, formData, {
-//                 headers: {
-//                     'Content-Type': 'multipart/form-data'
-//                 }
-//             });
+            const response = await axios.put(`https://localhost:7001/api/Song/UpdateSong/${review.SongId}`, formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            });
 
-//             return response.data;
-//         } catch (error) {
-//             console.log(error);
-//         }
-//     }
-// );
+            return response.data;
+        } catch (error) {
+            console.log(error);
+        }
+    }
+);
 
 // export const updatereview = (state, action) => {
 //     const { index, review } = action.payload;

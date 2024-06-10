@@ -14,11 +14,11 @@ import LoggedOut from '../LogOut/LogOut';
 import Loading from '../loading/loading';
 import UserProfile from '../Users/UserProfile';
 import ForgotPassword from '../Login/forgotPassword';
-import RecipeComponent from '../personal home page/LastSongsSlider';
-import AudioVisualizer from '../songDisplay/Visualition';
+import LastSongsSwiper from '../personal home page/LastSongsSlider';
 import Search from '../personal area/GenerateImages';
 import StarsRating from '../Reviews/starsRating';
 import SongView from '../personal area/songView';
+import SongContainer from '../songDisplay/songContainer';
 
 
 const RouterComponents = () => {
@@ -46,8 +46,8 @@ const RouterComponents = () => {
                     <Route path="userProfile/:userId" element={<UserProfile />} >
                         <Route path='playlist' element={<Playlist/>}/>
                     </Route>
-                    <Route path='ss' element={<RecipeComponent/>}></Route>
-                    <Route path='visualition' element={<AudioVisualizer/>}></Route>
+                    <Route path='homePage' element={<LastSongsSwiper/>}></Route>
+                    <Route path='songContainer' element={<SongContainer/>}></Route>
                     <Route path='generateImage' element={<Search/>}></Route>
                     <Route path='songView' element={<SongView/>}></Route>
                     {/* <Route path='rr' element={<StarsRating/>}></Route> */}

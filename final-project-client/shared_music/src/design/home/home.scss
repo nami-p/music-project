@@ -1,8 +1,11 @@
 
 html {
     box-sizing: border-box;
+   
   }
-  
+  .page{
+    margin-top: 5vh;
+  }
   *,
   *:before,
   *:after {
@@ -11,10 +14,11 @@ html {
     padding: 0;
   }
   
-  $contBgClr: linear-gradient(to left bottom, #F2E3C6 0%, #A7A1A5 100%);
+  $contBgClr: linear-gradient(to left bottom, #F2E3C6 0%, #eff1f5 100%);
   $appShadowClr: rgba(#000, .3);
   a{
-    color:rgba(0, 0, 0, 0.7)
+    color:rgba(0, 0, 0, 0.7);
+    cursor:'pointer';
   }
   .cont {
       position: relative;

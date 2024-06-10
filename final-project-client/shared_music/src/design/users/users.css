@@ -14,7 +14,7 @@
   flex-flow: column;
   justify-content: center;
   min-width: 350px;
-  min-height: 90vh;
+  min-height: 100vh;
   margin: 0 auto;
   overflow-x: hidden;
   font-family: "Inter", sans-serif;

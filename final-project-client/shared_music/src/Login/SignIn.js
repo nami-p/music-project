@@ -1,6 +1,5 @@
 
 import {  useDispatch, useSelector } from 'react-redux';
-// import '../design/login/sighnIn.css'
 import '../design/login/login.css'
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -8,28 +7,33 @@ import {  setUser, rememberMeChecked, connectu } from './loginSlice';
 import { useEffect, useRef, useState } from 'react';
 import { Checkbox, FormControlLabel } from '@mui/material';
 import SignUp from './SignUp';
-import { fetchSongsForUser } from '../Songs/SongsSlice';
 
 const SighnIn = () => {
+
   const email = useRef();
   const password = useRef();
   const user = useSelector((state) => state.login.user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const rememberMe1 = useRef();
+
   let [signin,setsignIn]=useState(true);
   let [signUp,setSignUp]=useState(false);
+
   const songsToUserStatus=useSelector(state => state.songs.songsToUserStatus)
 
+  
   const handleSubmit = async () => {
-
     console.log({
       email: email.current.value,
       password: password.current.value,
     });
     if (user == null) {
-      const url = `https://localhost:7001/api/User/${password.current.value}/${email.current.value}`;
-      axios.get(url)
+      const fromData=new FormData();
+      fromData.append('password',password.current.value)
+      fromData.append('email',email.current.value)
+      const url = 'https://localhost:7001/api/User/GetByNameAndPassward';
+      axios.post(url,fromData)
         .then((response) => {
           console.log("response:", response.data);
           if (typeof response.data.id === 'number' && response.data.id !== 0) {
@@ -40,7 +44,8 @@ const SighnIn = () => {
             dispatch(setUser(response.data));
             if (songsToUserStatus != "fulfilled")
             // alert("hello " + user.firstName + " " + user.lastName);
-            navigate(-1);
+            navigate("/homePage");
+
           }
           else {
             alert(("wrong password or email"))
@@ -75,7 +80,7 @@ const SighnIn = () => {
       setsignIn(true)
       modal.classList.remove("is-open");
       body.style.overflow = "initial";
-      navigate(-1);
+      navigate('/homePage');
     };
 
     const handleScroll = () => {
@@ -108,13 +113,13 @@ const SighnIn = () => {
 
   return (
     <>
-      <div className="scroll-down">SCROLL DOWN
+      <div className="scroll-down" >SCROLL DOWN
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
           <path d="M16 3C8.832031 3 3 8.832031 3 16s5.832031 13 13 13 13-5.832031 13-13S23.167969 3 16 3zm0 2c6.085938 0 11 4.914063 11 11 0 6.085938-4.914062 11-11 11-6.085937 0-11-4.914062-11-11C5 9.914063 9.914063 5 16 5zm-1 4v10.28125l-4-4-1.40625 1.4375L16 23.125l6.40625-6.40625L21 15.28125l-4 4V9z" />
         </svg>
       </div>
       <div className="container">
-    <div className="modal">
+    <div className="modal page">
         <div className="modal-container">
         {signin&&  <div className="modal-left">
             <h1 className="modal-title">Welcome!</h1>

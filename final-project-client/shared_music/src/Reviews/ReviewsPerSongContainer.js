@@ -19,15 +19,15 @@ export default function BlogView({ songId }) {
 
 
     async function fetchData() {
-        if (!posts[0] && songId)
+        if (!posts[0] && songId) {
             try {
                 const fromData = new FormData();
                 fromData.append("SongId", songId)
                 const response = await axios.post('https://localhost:7001/api/Review/joinReviewAndPlayback', fromData);
-
-                setPosts(response.data.map(async(p, index) => {
+    
+                const postData = await Promise.all(response.data.map(async (p, index) => {
                     const userImg = await axios.get(`https://localhost:7001/api/User/getImage/${p.profilImage}`)
-                    return ({
+                    return {
                         id: p.id,
                         cover: `/assets/images/covers/cover_${index + 1}.jpg`,
                         title: p.content,
@@ -40,28 +40,28 @@ export default function BlogView({ songId }) {
                             name: "faker",
                             avatarUrl: userImg.data,
                         },
-
-
-                    })
-                }
-                ));
-            }
-            catch (err) {
+                    };
+                }));
+    
+                setPosts(postData);
+            } catch (err) {
                 console.log(err);
             }
+        }
     }
+    
     useEffect(() => {
         fetchData();
     }, [])
     return (<>
-        {posts[0] && <Container>
+        {posts[0] && <Container className='page'>
 
-            <Stack mb={5} direction="row" alignItems="center" justifyContent="space-between">
+            <Stack className='page' mb={5} direction="row" alignItems="center" justifyContent="space-between">
             </Stack>
 
             <Grid container spacing={3}>
                 {posts.map((post, index) => (
-                    <PostCard key={post.id} post={post} index={index} />
+                    <PostCard key={`post${index}`} post={post} index={index} />
                 ))}
             </Grid>
         </Container>

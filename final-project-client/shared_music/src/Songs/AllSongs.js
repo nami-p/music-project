@@ -7,8 +7,8 @@ import Songs from "./Songs";
 
 const AllSongs = () => {
 
-    return (<><SongHeader></SongHeader>
-        <Songs></Songs></>);
+    return (<div className="page"><SongHeader></SongHeader>
+        <Songs ></Songs></div>);
 }
 
 export default AllSongs;

@@ -69,14 +69,14 @@ namespace Service.Services
                               select new ReviewDTO
                               {
                                   id = p.Id,
-                                  ProfilImage = p?.Song.user.ProfilImage,
+                                  ProfilImage = p?.User.ProfilImage??"",
                                   Date = rr?.Date ?? DateTime.Now,
                                   Content = rr?.Content ?? "this user didnt react of this song",
                                   UserCount = p?.Count ?? 0,
                                   RatingStars = rr?.RatingStars ?? 0,
                                   UserLike = p.Love,
                                   UserAddedToCollection = p.AddToCollection,
-
+                                  UserId= p?.UserId??rr.UserId,
                              }).ToList();
             //mapper.Map < List < ReviewDTO >> 
             return (mapper.Map<List<ReviewDTO>>(newReviews));

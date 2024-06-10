@@ -41,18 +41,18 @@ const Users = () => {
     <>
       {status === 'idle' && <Loading />}
       {status === 'fulfilled' &&
-        <div id='users'>
+        <div id='users' className='page'>
           <div className="slider">
             <Swiper loop="true"
               slidesPerView="auto"
               centeredSlides="true"
               observeParents="!0"
               observer="!0" className="people__slide">
-              {peopleData?.map((person) => {
+              {peopleData?.map((person,index) => {
                 const userProfile="/userProfile/"+person.id;
                 return (
 
-                  <SwiperSlide className="swiper-slide" key={person.id}>
+                  <SwiperSlide className="swiper-slide" key={`user${index}`}>
                     <div className="people__card">
                       <div className="people__image">
                         <Avatar className='img' src={person.image} alt={person.name} />
@@ -60,7 +60,7 @@ const Users = () => {
                       <div className="people__info">
                         <ul className="people__social">
                           {person.social.map((socialItem, index) => (
-                            <li key={Math.random() * index}>
+                            <li key={index}>
                               <a href={socialItem.link}>{socialItem.icon}</a>
                             </li>
                           ))}

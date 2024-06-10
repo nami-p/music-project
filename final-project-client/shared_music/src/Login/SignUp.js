@@ -60,7 +60,7 @@ export default function SignUp() {
     const errors = [];
     if (connected) {
       alert("you are conected");
-      navigate(-1);
+      navigate("/homePage");
     }
     else {
       if (!userUp.Email.endsWith('@gmail.com') || !emailRegex.test(userUp.Email)) {
@@ -102,7 +102,7 @@ export default function SignUp() {
           dispatch(connectu(true));
           dispatch(setUser(response.data));
           setStatus2(response.status.toString());
-          navigate(-1);
+          navigate('/homePage');
         } catch (error) {
           console.error('Error signing up:', error);
           if (error.response) {
@@ -121,7 +121,7 @@ export default function SignUp() {
 
 
   return (
-    <div className="modal-left">
+    <div className="modal-left ">
       <h1 className="modal-title">sign up</h1>
       <div style={{ display: 'flex', flexDirection: 'row', columnGap: '0.8vw' }}>
         <div className="input-block">

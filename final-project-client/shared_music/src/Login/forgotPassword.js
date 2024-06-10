@@ -41,7 +41,7 @@ const ForgotPassword = () => {
         }
     }
     return (
-        <div id="password1">
+        <div id="password1" >
             <div className="Pcontainer">
                 {!emaiSent ? <Box className="beforeImage" /> : <Box className="afterImage" />}
                 {!emaiSent && < div className="PtextContainer">

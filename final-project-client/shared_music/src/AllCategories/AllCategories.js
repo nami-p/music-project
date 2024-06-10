@@ -84,7 +84,7 @@ const AllCategories = (props) => {
                     {categories?.map((c) => {
 
                         return (
-                            <div className="row">
+                            <div className="row page">
                                 <figure className="snip1187">
                                     <img src={c.image} alt="sq-sample27" />
                                     <figcaption>

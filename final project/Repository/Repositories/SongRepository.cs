@@ -56,14 +56,18 @@ namespace Repository.Repositories
                 if (item.Description != null) song.Description = item.Description;
                 if (item.Length != 0) song.Length = item.Length;
                 if (item.Image != null) song.Image = item.Image;
-                if (item.RatingStars != 0) song.RatingStars = item.RatingStars;
+                //if (item.RatingStars !=null 1&& item.NumOfRaters) song.RatingStars = item.RatingStars;
                 if (item.NumOfPlays != 0) song.NumOfPlays = item.NumOfPlays;
                 if (item.NumOfListeners != 0) song.NumOfListeners += item.NumOfListeners;
                 if (item.NumOfLikes != 0) song.NumOfLikes += item.NumOfLikes;
                 if (item.NumOfAddedToCollections != 0) song.NumOfAddedToCollections += item.NumOfAddedToCollections;
                 if (item.NumOfDownloads != 0) song.NumOfDownloads += item.NumOfDownloads;
                 if (item.UploadDate != DateTime.MinValue) song.UploadDate = item.UploadDate;
-                if (item.NumOfRaters != 0) song.NumOfRaters = item.NumOfRaters;
+                if (item.NumOfRaters == 1)
+                {
+                    song.RatingStars = ((song.RatingStars * song.NumOfRaters) + item.RatingStars) /( song.NumOfRaters + 1);
+                    song.NumOfRaters += 1;
+                }
                 if (item.Song1 != null) song.Song1 = item.Song1;
                 if (item.Fear != 0) song.Fear = item.Fear;
                 if (item.Surprise != 0) song.Surprise = item.Surprise;

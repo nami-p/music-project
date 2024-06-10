@@ -24,9 +24,9 @@ const ImageResults = ({ images ,setImageSrc,setSearchImage}) => {
     if (images) {
         imageListContent = (
             <ImageList cols={3}>
-                {images.map(img => (
+                {images.map((img,index) => (
                     <ImageListItem
-                        key={img.id}
+                        key={`img${index}`}
                         onClick={() => handleOpen(img.largeImageURL)}
                     >
                         <img src={img.largeImageURL} alt={img.tags} />

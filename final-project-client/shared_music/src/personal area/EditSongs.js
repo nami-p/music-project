@@ -144,8 +144,8 @@ export default function EditSongs() {
             renderCell: (params) => {
 
                 return (
-                    <Link  to="/songView"
-                    state={{songId:params?.row?.id}}>
+                    <Link to="/songView"
+                        state={{ songId: params?.row?.id }}>
                         <Avatar
                             sx={{ width: 56, height: 56 }}
                             variant="rounded"
@@ -268,6 +268,7 @@ export default function EditSongs() {
     return (<>
         {status === 'iddle' && <Loading />}
         {status === 'fulfilled' && <Box
+
             sx={{
                 height: "100vh",
                 width: '100%',
@@ -277,6 +278,7 @@ export default function EditSongs() {
                 '& .textPrimary': {
                     color: 'text.primary',
                 },
+                paddingTop: '12.7vh'
             }}
         >
             <DataGrid
@@ -286,6 +288,7 @@ export default function EditSongs() {
                     '.MuiDataGrid-cell:focus': {
                         outline: 'none'
                     },
+
                 }}
                 rows={rows}
                 columns={columns}
@@ -304,7 +307,14 @@ export default function EditSongs() {
                         setRows, setRowModesModel, showQuickFilter: true,
                     },
                 }}
+                initialState={{
 
+                    pagination: {
+                        paginationModel: {
+                            pageSize:5,
+                        },
+                    },
+                }}
             />
         </Box>}
     </>

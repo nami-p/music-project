@@ -11,14 +11,14 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 const PersonalArea = () => {
     return (<>
-        <Box sx={{ flexGrow: 1 }}>
+        <Box sx={{ flexGrow: 1 ,paddingTop:'30vh'}} className="page" >
             <Grid container spacing={2} columns={16}>
-                <Grid item xs={8}>
+                <Grid variant="outlined" item xs={8}>
                     <Item>
-                    <Button><Link to="/EditSongs">edit songs</Link></Button></Item>
+                    <Button ><Link style={{"textDecoration":"none"}} to="/EditSongs">edit songs</Link></Button></Item>
                 </Grid>
                 <Grid item xs={8}>
-                    <Item><Button><Link to="/AddSong">add new song</Link></Button></Item>
+                    <Item><Button><Link style={{"textDecoration":"none"}} to="/AddSong">add new song</Link></Button></Item>
                 </Grid>
             </Grid>
             {/* <Outlet /> */}

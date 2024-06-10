@@ -119,9 +119,9 @@ const AddNewSong = () => {
                 <CheckCircleOutlineIcon sx={{ color: "#ffaeb5", fontSize: 50 }} /></div>
         }
         {!searchImage&&
-        <div className="container">
+        <div className="container page">
             <div className={open ? "is-open modal" : "modal"}>
-                <div className="modal-container">
+                <div className="modal-container page">
                     <div className="modal-left">
                         <h1 className="modal-title">hi !</h1>
                         <p className="modal-desc">share your songs and contribute to the community</p>
@@ -182,8 +182,8 @@ const AddNewSong = () => {
                                     style={{ "fontFamily": "Nunito, sans-serif" }}
                                 >
 
-                                    {cStatus === "fulfilled" && categories?.map(category => (
-                                        <MenuItem style={{ "fontSize": "18px", "fontFamily": "Nunito, sans-serif" }} key={category.id} value={category.id}>{category.name}</MenuItem>
+                                    {cStatus === "fulfilled" && categories?.map((category,index) => (
+                                        <MenuItem style={{ "fontSize": "18px", "fontFamily": "Nunito, sans-serif" }} key={`category${index}`} value={category.id}>{category.name}</MenuItem>
                                     ))};
 
                                 </Select>

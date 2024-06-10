@@ -67,7 +67,7 @@ const UserProfile = () => {
             <Box
                 sx={{
                     position: 'relative',
-                    height: '40vh',
+                    height: '47vh',
                     backgroundPosition: 'center center',
                     backgroundImage: `linear-gradient(0deg, rgba(25, 27, 38, .32), rgba(25, 27, 38, .72)), url(${user?.profilImage})`,
                     backgroundSize: 'cover',
@@ -75,7 +75,7 @@ const UserProfile = () => {
                     backgroundPosition: 'center 25%',
                 }}
             >
-                <Box className="people__image" sx={{ display: 'flex', alignItems: 'end', justifyContent: 'center', height: '47vh' }}>
+                <Box className="people__image" sx={{ display: 'flex', alignItems: 'end', justifyContent: 'center', height: '54vh' }}>
                     <Avatar src={user?.profilImage} alt={user?.profilImage} sx={{ width: 136, height: 136 }}
                         style={{
                             "border": '4px solid #fff'
